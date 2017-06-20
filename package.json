@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/YOUR_LOGIN/node-todo-api#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha server/**/*.test.js",
+    "test-watch": "nodemon --exec \"npm test\""
   },
   "license": "ISC",
   "dependencies": {
@@ -25,5 +26,11 @@
     "express": "^4.15.3",
     "mongodb": "^2.2.28",
     "mongoose": "^4.10.7"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }
