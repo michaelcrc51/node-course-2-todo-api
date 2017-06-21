@@ -12,7 +12,9 @@ User.findById('5948563a4f7eed38d4033cfb').then((user) => {
         return console.log('User not found');
     }
     console.log('User: ', user);
-}).catch ((e) => console.log(e));
+}).catch ((e) => {
+    console.log(e);
+});
 
 //if no user - print User not found
 //handle any error
