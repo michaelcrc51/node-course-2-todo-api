@@ -4,6 +4,7 @@ const _ = require('lodash');
 const {ObjectID} = require('mongodb');
 const express = require('express');
 const bodyParser = require('body-parser'); //alows us to send JSON TO the server
+require('./config/config'); 
 
 var {mongoose} = require('./db/mongoose');
 var{Todo} = require('./models/todo');
@@ -106,6 +107,22 @@ app.patch('/todos/:id', (req, res) => {
     });
 
     
+});
+
+//POST /users
+//Use .pick to get email and password like the patch method
+
+app.post('/users', (req, res) => {
+    var user = new User({
+      email: 'mike@mike.com',
+      password: 'madman',
+      token: 'abc123'
+    });
+    user.save().then((doc) => {
+        res.send(doc);
+    }, (e) => {
+        res.status(400).send(e);
+    });
 });
 
 app.listen(port, () => {
